@@ -1,3 +1,4 @@
+import sys
 from stats import count_words, count_characters, sort_characters
 
 def get_book_text(filepath):
@@ -7,17 +8,15 @@ def get_book_text(filepath):
     return contents
 
 def main():
-    filepath = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: pyhton3 main.py <path_to_book>")
+        sys.exit(1)
+    
+    filepath = sys.argv[1]
     text = get_book_text(filepath)
     
-    #count_words
     num_words = count_words(text)
-    print(f"Found {num_words} total words")
-
-    #Count characters
     char_counts = count_characters(text)
-    print(char_counts)
-
     sorted_chars = sort_characters(char_counts)
 
     print("============ BOOKBOT ============")
