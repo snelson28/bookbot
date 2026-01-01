@@ -1,4 +1,4 @@
-from stats import count_words, count_characters
+from stats import count_words, count_characters, sort_characters
 
 def get_book_text(filepath):
     """Reads the contents of the file and returns it as a string."""
@@ -17,6 +17,25 @@ def main():
     #Count characters
     char_counts = count_characters(text)
     print(char_counts)
+
+    sort_chars = sort_characters(char_counts)
+
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
+
+    for item in sorted_chars:
+        char = item["char"]
+        count = item["num"]
+                     
+        if not char.isalpha():
+            continue
+
+        print(f"{char}: {count}")
+
+    print("============= END ===============")
 
 if __name__ == "__main__":
     main()
