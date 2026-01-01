@@ -18,7 +18,7 @@ def main():
     char_counts = count_characters(text)
     print(char_counts)
 
-    sort_chars = sort_characters(char_counts)
+    sorted_chars = sort_characters(char_counts)
 
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {filepath}...")
